@@ -18,9 +18,7 @@ public void goToURLUsing(String browser) {
 	
 	if(browser.equalsIgnoreCase("firefox")) {
 		driver = new FirefoxDriver();
-		System.setProperty("webdriver.gecko.driver", "/Users/Razzy/eclipse-workspace/ShopTools/geckodriver");}
-	
-	
+		System.setProperty("webdriver.gecko.driver", "/Users/Razzy/eclipse-workspace/ShopToolsJanuary2020/geckodriver");}
 	
 	
 	driver.get("http://shop.demoqa.com/");

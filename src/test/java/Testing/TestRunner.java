@@ -5,6 +5,7 @@ import org.testng.annotations.Test;
 
 import Pages.HomePage;
 import Pages.MyAccountPage;
+import Pages.MyCart;
 import Pages.MyWishlistPage;
 import ProductPages.PinkShirt;
 
@@ -74,7 +75,7 @@ public void goToPinkShirtPage() {
 @Test
 public void addProductToCart() {
 	
-	goToURLUsing("chrome");
+	goToURLUsing("firefox");
 	HomePage home = new HomePage(driver);
 	home.goToPinkShirtPage();
 	
@@ -82,12 +83,19 @@ public void addProductToCart() {
 	pinkShirtPage.addProductToCart();
 	pinkShirtPage.goToCart();
 	
+	MyCart myCart = new MyCart(driver);
+	String item1= myCart.getItem1Name();
+	
+	Assert.assertEquals(item1, "PINK DROP SHOULDER OVERSIZED T SHIRT - PINK");
+	
+	
+	
 	
 }
 
 public void addProductToWishlist() {
 	
-	goToURLUsing("chrome");
+	goToURLUsing("firefox");
 	HomePage home = new HomePage(driver);
 	home.goToPinkShirtPage();
 	
