@@ -26,7 +26,7 @@ public PinkShirt(WebDriver driver) {
 	}
 
 
-//PRODUCT INTERACTION
+//PRODUCT INTERACTIONw		
 public String getProductName() {
 	
 	return getText(productNameDisplayed);

@@ -5,7 +5,7 @@
     <classes>
       <class name="Testing.TestRunner">
         <methods>
-          <include name="addProductToCart"/>
+          <include name="increaseQuantityOfItem"/>
         </methods>
       </class> <!-- Testing.TestRunner -->
     </classes>

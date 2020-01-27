@@ -12,7 +12,7 @@ import ProductPages.PinkShirt;
 public class TestRunner extends TestBase {
 	
 
-
+//User is able to Log In 
 public void logInTest() {
 	
 	goToURLUsing("chrome");
@@ -27,6 +27,7 @@ public void logInTest() {
 	
 }
 
+// User is able to logout
 public void logOutTest() {
 	
 	goToURLUsing("chrome");
@@ -44,6 +45,7 @@ public void logOutTest() {
 
 }
 
+//User can go to Wishlist Page
 public void goToWishlistPage() {
 	
 	goToURLUsing("chrome");
@@ -59,6 +61,7 @@ public void goToWishlistPage() {
 
 }
 
+//User is able to go to Pink Shirt Page
 public void goToPinkShirtPage() {
 	
 	goToURLUsing("chrome");
@@ -72,7 +75,7 @@ public void goToPinkShirtPage() {
 	
 }
 
-@Test
+//User is able to add product to cart
 public void addProductToCart() {
 	
 	goToURLUsing("firefox");
@@ -88,11 +91,76 @@ public void addProductToCart() {
 	
 	Assert.assertEquals(item1, "PINK DROP SHOULDER OVERSIZED T SHIRT - PINK");
 	
+
+}
+
+//User can delete product from cart
+public void deleteProductFromCart() {
+	
+	goToURLUsing("firefox");
+	HomePage home = new HomePage(driver);
+	home.goToPinkShirtPage();
+	
+	PinkShirt pinkShirtPage = new PinkShirt(driver);
+	pinkShirtPage.addProductToCart();
+	pinkShirtPage.goToCart();
+	
+	
+	MyCart myCart = new MyCart(driver);
+	myCart.deleteItem1();
+	String message= myCart.getDeleteMessage();
+	
+	Assert.assertEquals(message, "“pink drop shoulder oversized t shirt” removed. Undo?");
+	
+	
 	
 	
 	
 }
 
+//User can undo deleted product 
+public void undoDeletedProduct() {
+	
+	goToURLUsing("firefox");
+	HomePage home = new HomePage(driver);
+	home.goToPinkShirtPage();
+	
+	PinkShirt pinkShirtPage = new PinkShirt(driver);
+	pinkShirtPage.addProductToCart();
+	pinkShirtPage.goToCart();
+	
+	
+	MyCart myCart = new MyCart(driver);
+	myCart.deleteItem1();
+	myCart.undoDeletedItem();
+	
+	String item1= myCart.getItem1Name();
+	
+	Assert.assertEquals(item1, "PINK DROP SHOULDER OVERSIZED T SHIRT - PINK");
+	
+	
+}
+
+//User can increase quantity of product
+public void increaseQuantityOfItem() {
+	
+	goToURLUsing("firefox");
+	HomePage home = new HomePage(driver);
+	home.goToPinkShirtPage();
+	
+	PinkShirt pinkShirtPage = new PinkShirt(driver);
+	pinkShirtPage.addProductToCart();
+	pinkShirtPage.goToCart();
+	
+	MyCart myCart = new MyCart(driver);
+	myCart.increaseQuantity();
+	
+	String quantityOfItem = myCart.getQuantityOfItem();
+	Assert.assertEquals(quantityOfItem, "Cart(2)"
+			+ "₹30.00");
+}
+
+//User is able to add product to Wishlist
 public void addProductToWishlist() {
 	
 	goToURLUsing("firefox");
