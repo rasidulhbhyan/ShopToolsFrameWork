@@ -1,6 +1,7 @@
 package Testing;
 
 import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import Pages.HomePage;
@@ -8,14 +9,20 @@ import Pages.MyAccountPage;
 import Pages.MyCart;
 import Pages.MyWishlistPage;
 import ProductPages.PinkShirt;
+import io.cucumber.java.Before;
 
 public class TestRunner extends TestBase {
 	
+	
+	
+@BeforeTest
+public void startBrowser() {
+	goToURLUsing("firefox");
+}	
 
 //User is able to Log In 
 public void logInTest() {
 	
-	goToURLUsing("chrome");
 	HomePage home = new HomePage(driver);
 	home.goToMyAccuntPage();
 	
@@ -30,7 +37,7 @@ public void logInTest() {
 // User is able to logout
 public void logOutTest() {
 	
-	goToURLUsing("chrome");
+
 	HomePage home = new HomePage(driver);
 	home.goToMyAccuntPage();
 	
@@ -48,7 +55,7 @@ public void logOutTest() {
 //User can go to Wishlist Page
 public void goToWishlistPage() {
 	
-	goToURLUsing("chrome");
+
 	HomePage home = new HomePage(driver);
 	home.goToMyWishlist();
 	
@@ -64,7 +71,7 @@ public void goToWishlistPage() {
 //User is able to go to Pink Shirt Page
 public void goToPinkShirtPage() {
 	
-	goToURLUsing("chrome");
+
 	HomePage home = new HomePage(driver);
 	home.goToPinkShirtPage();
 	
@@ -78,7 +85,6 @@ public void goToPinkShirtPage() {
 //User is able to add product to cart
 public void addProductToCart() {
 	
-	goToURLUsing("firefox");
 	HomePage home = new HomePage(driver);
 	home.goToPinkShirtPage();
 	
@@ -97,7 +103,7 @@ public void addProductToCart() {
 //User can delete product from cart
 public void deleteProductFromCart() {
 	
-	goToURLUsing("firefox");
+	
 	HomePage home = new HomePage(driver);
 	home.goToPinkShirtPage();
 	
@@ -121,7 +127,6 @@ public void deleteProductFromCart() {
 //User can undo deleted product 
 public void undoDeletedProduct() {
 	
-	goToURLUsing("firefox");
 	HomePage home = new HomePage(driver);
 	home.goToPinkShirtPage();
 	
@@ -144,7 +149,6 @@ public void undoDeletedProduct() {
 //User can increase quantity of product
 public void increaseQuantityOfItem() {
 	
-	goToURLUsing("firefox");
 	HomePage home = new HomePage(driver);
 	home.goToPinkShirtPage();
 	
@@ -163,7 +167,6 @@ public void increaseQuantityOfItem() {
 //User is able to add product to Wishlist
 public void addProductToWishlist() {
 	
-	goToURLUsing("firefox");
 	HomePage home = new HomePage(driver);
 	home.goToPinkShirtPage();
 	
@@ -182,7 +185,16 @@ public void addProductToWishlist() {
 	
 }	
 
-
+//User can quick vioew item
+@Test
+public void quickViewItem() {
+	
+	HomePage homePage = new HomePage(driver);
+	homePage.quickViewPinkShirt();
+	
+	
+	
+}
 	
 	
 	

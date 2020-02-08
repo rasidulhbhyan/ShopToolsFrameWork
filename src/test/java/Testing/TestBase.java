@@ -13,7 +13,8 @@ public static WebDriver driver;
 public void goToURLUsing(String browser) {
 	
 	if(browser.equalsIgnoreCase("chrome")) {
-	driver = new ChromeDriver();
+	
+		driver = new ChromeDriver();
 	System.setProperty("webdriver.chrome.driver", "/Users/Razzy/eclipse-workspace/ShopTools/chromedriver");}
 	
 	if(browser.equalsIgnoreCase("firefox")) {
@@ -22,6 +23,12 @@ public void goToURLUsing(String browser) {
 	
 	
 	driver.get("http://shop.demoqa.com/");
+	
+	
+	try {
+		Thread.sleep(500);}
+		
+	 catch (InterruptedException e) {}
 	
 	
 	

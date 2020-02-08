@@ -5,7 +5,8 @@
     <classes>
       <class name="Testing.TestRunner">
         <methods>
-          <include name="increaseQuantityOfItem"/>
+          <include name="quickViewItem"/>
+          <include name="startBrowser"/>
         </methods>
       </class> <!-- Testing.TestRunner -->
     </classes>
