@@ -24,14 +24,7 @@ public void goToURLUsing(String browser) {
 	
 	driver.get("http://shop.demoqa.com/");
 	
-	
-	try {
-		Thread.sleep(500);}
-		
-	 catch (InterruptedException e) {}
-	
-	
-	
+
 }	
 	
 	

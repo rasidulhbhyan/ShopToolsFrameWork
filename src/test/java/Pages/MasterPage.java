@@ -109,7 +109,9 @@ public void hover (String locator) {
 	
 }
 
-
+public void closeBrowser() {
+	driver.close();
+}
 
 
 

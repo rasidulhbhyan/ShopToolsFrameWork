@@ -5,8 +5,16 @@
     <classes>
       <class name="Testing.TestRunner">
         <methods>
-          <include name="quickViewItem"/>
+          <include name="logOutTest"/>
+          <include name="closeBrowser"/>
+          <include name="logInTest"/>
+          <include name="deleteProductFromCart"/>
+          <include name="increaseQuantityOfItem"/>
+          <include name="addProductToWishlist"/>
+          <include name="undoDeletedProduct"/>
+          <include name="goToWishlistPage"/>
           <include name="startBrowser"/>
+          <include name="goToPinkShirtPage"/>
         </methods>
       </class> <!-- Testing.TestRunner -->
     </classes>
