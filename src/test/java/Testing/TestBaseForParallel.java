@@ -6,42 +6,46 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-public class TestBase {
+public class TestBaseForParallel {
 
-	public WebDriver driver;
+	//public WebDriver driver;
+	ThreadLocal<WebDriver> driver = new ThreadLocal<WebDriver>();
+
+	WebDriver threadDriver;
+	
+	public WebDriver getWebDriver() {
+		return driver.get();
+	}
 
 
 	@BeforeMethod
 	public void startBrowser() {
-		goToURLUsing("chrome");
+		createBrowser("chrome");
 	}
 	
-	public void goToURLUsing(String browser) {
+	public void createBrowser(String browser) {
 
 		if (browser.equalsIgnoreCase("chrome")){
-			driver = new ChromeDriver();
-			// System.setProperty("webdriver.chrome.driver", "/Users/Razzy/eclipse-workspace/ShopTools/chromedriver");
 			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+ "/chromedriver");
+			driver.set(new ChromeDriver());
+			//driver = new ChromeDriver();
 		}
 		if (browser.equalsIgnoreCase("firefox")) {
-			driver = new FirefoxDriver();
-			//System.setProperty("webdriver.gecko.driver","/Users/Razzy/eclipse-workspace/ShopToolsJanuary2020/geckodriver");
-			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+ "/geckodriver");
+			
+			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+ "/chromedriver");
+			driver.set(new FirefoxDriver());
 		}
-
-		driver.get("http://shop.demoqa.com/");
 
 		try {
 			Thread.sleep(500);
 		}
-
 		catch (InterruptedException e) {
 		}
 	}
 
 	@AfterMethod
 	public void closeBrowser() {
-		driver.close();
+		//driver.get().quit();
 	}
 
 

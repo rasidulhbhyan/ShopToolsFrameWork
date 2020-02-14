@@ -5,7 +5,9 @@
     <classes>
       <class name="Testing.TestRunner">
         <methods>
-          <include name="quickViewItem"/>
+          <include name="logOutTest"/>
+          <include name="closeBrowser"/>
+          <include name="logInTest"/>
           <include name="startBrowser"/>
         </methods>
       </class> <!-- Testing.TestRunner -->

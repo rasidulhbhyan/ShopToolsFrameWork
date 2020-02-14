@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Shop Test SUite" parallel="methods" thread-count="4">
+	<!-- Test -->
+	<test name="Shop Tool Smoke Te	st Cases">
+		<classes>
+			<class name="Testing.TestRunner">
+				<methods>
+					<include name="logInTest" />
+					<include name="logOutTest" />
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+</suite>

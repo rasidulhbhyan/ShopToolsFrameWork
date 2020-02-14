@@ -1,21 +1,26 @@
 package Testing;
 
+import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import Pages.HomePage;
 import Pages.MyAccountPage;
 
-public class TestRunner extends TestBase {
+public class ParallalTestRunner extends TestBaseForParallel {
 
 	// User is able to Log In
 	@Test()
 	public void logInTest() {
 
-		HomePage home = new HomePage(driver);
+		WebDriver threadDriver = this.getWebDriver();
+		threadDriver.get("http://shop.demoqa.com/");
+
+		
+		HomePage home = new HomePage(threadDriver);
 		home.goToMyAccuntPage();
 
-		MyAccountPage myAccount = new MyAccountPage(driver);
+		MyAccountPage myAccount = new MyAccountPage(threadDriver);
 		myAccount.logIn("user0712", "user0712!");
 
 		String displayedName = myAccount.getNameDisplayed();
@@ -27,10 +32,14 @@ public class TestRunner extends TestBase {
 	// User is able to logout
 	public void logOutTest() {
 
-		HomePage home = new HomePage(driver);
+		WebDriver threadDriver = this.getWebDriver();
+		threadDriver.get("http://shop.demoqa.com/");
+
+		
+		HomePage home = new HomePage(threadDriver);
 		home.goToMyAccuntPage();
 
-		MyAccountPage myAccount = new MyAccountPage(driver);
+		MyAccountPage myAccount = new MyAccountPage(threadDriver);
 		myAccount.logIn("user0712", "user0712!");
 		myAccount.logOut();
 
