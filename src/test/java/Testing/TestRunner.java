@@ -25,8 +25,7 @@ public void startBrowser() {
 }	
 @AfterMethod
 public void closeBrowser() {
-	MasterPage master = new MasterPage(driver);
-	master.closeBrowser();
+	driver.close();
 }
 
 
@@ -50,7 +49,8 @@ public void logInTest() {
 public void logOutTest() {
 	  
 	  
-	  HomePage home = new HomePage(driver); home.goToMyAccuntPage();
+	  HomePage home = new HomePage(driver);
+	  home.goToMyAccuntPage();
 	  
 	  MyAccountPage myAccount = new MyAccountPage(driver);
 	  myAccount.logIn("user0712", "user0712!"); 
@@ -88,8 +88,8 @@ public void goToPinkShirtPage() {
 	  HomePage home = new HomePage(driver); 
 	  home.goToPinkShirtPage();
 	  
-	  PinkShirt pinkShirtPage = new PinkShirt(driver); String nameDisplayed =
-	  pinkShirtPage.getProductName();
+	  PinkShirt pinkShirtPage = new PinkShirt(driver); 
+	  String nameDisplayed = pinkShirtPage.getProductName();
 	  
 	  Assert.assertEquals(nameDisplayed, "PINK DROP SHOULDER OVERSIZED T SHIRT",
 	  "Test Failed");
@@ -146,13 +146,16 @@ public void deleteProductFromCart() {
 @Test 
 public void undoDeletedProduct() {
 	  
-	  HomePage home = new HomePage(driver); home.goToPinkShirtPage();
+	  HomePage home = new HomePage(driver); 
+	  home.goToPinkShirtPage();
 	  
 	  PinkShirt pinkShirtPage = new PinkShirt(driver);
-	  pinkShirtPage.addProductToCart(); pinkShirtPage.goToCart();
+	  pinkShirtPage.addProductToCart(); 
+	  pinkShirtPage.goToCart();
 	  
 	  
-	  MyCart myCart = new MyCart(driver); myCart.deleteItem1();
+	  MyCart myCart = new MyCart(driver); 
+	  myCart.deleteItem1();
 	  myCart.undoDeletedItem();
 	  
 	  String item1= myCart.getItem1Name();

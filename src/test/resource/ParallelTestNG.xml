@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name= "Shop Tools Suite" parallel="methods" thread-count="3">
+
+<!-- LogInTest -->
+
+	<test name= "LogInTest">
+		<classes>
+		<class name= "StepDefinition.HookSteps">
+				<methods>
+					<include name ="user_is_on_ShopTools_Website"/>
+				</methods>
+		</class>
+		
+		
+			<class name= "StepDefinition.LogInSteps">
+				<methods>
+					<include name ="user_completes_log_in_procedure_with_correct_credentials"/>
+					<include name ="user_sees_profile_as_user0712"/>
+				</methods>
+			</class>
+		</classes>
+	</test>
+
+
+
+</suite>

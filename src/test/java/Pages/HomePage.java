@@ -17,9 +17,7 @@ public HomePage(WebDriver driver){
 	
 	
 	super(driver);
-	
-	
-	
+
 }
 	
 	

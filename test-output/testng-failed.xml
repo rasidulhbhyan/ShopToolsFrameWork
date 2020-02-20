@@ -9,6 +9,7 @@
           <include name="closeBrowser"/>
           <include name="logInTest"/>
           <include name="deleteProductFromCart"/>
+          <include name="quickViewItem"/>
           <include name="increaseQuantityOfItem"/>
           <include name="addProductToWishlist"/>
           <include name="undoDeletedProduct"/>

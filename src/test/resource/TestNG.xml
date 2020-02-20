@@ -7,7 +7,7 @@
 
 	<test name= "LogInTest">
 		<classes>
-		<class name= "StepDefinition.HookSteps">
+		<class name= "StepDefinition.BaseSteps">
 				<methods>
 					<include name ="user_is_on_ShopTools_Website"/>
 				</methods>
